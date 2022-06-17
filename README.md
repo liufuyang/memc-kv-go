@@ -15,7 +15,7 @@ Kind of a cache
 - [ ] A rust version?
 
 ## Run test or start server locally
-In the `golang` folder:
+In the project folder:
 ```
 go test -v ./...
 
