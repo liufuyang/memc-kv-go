@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option go_package = "example.com/http_kv/grpc_server/protos";
+option java_multiple_files = true;
+option java_package = "example.com.httpkv.grpcserver.protos";
+option java_outer_classname = "KVProto";
+
+package kv;
+
+// The greeting service definition.
+service Cache {
+  // Sends a get
+  rpc Get (GetRequest) returns (GetReply) {}
+
+  // Sends a set
+  rpc Set (SetRequest) returns (SetReply) {}
+}
+
+// The GET request message containing a key.
+message GetRequest {
+  string key = 1;
+}
+
+// The GET response message containing value
+message GetReply {
+  string value = 1;
+}
+
+// The SET request message containing a key and a value.
+message SetRequest {
+  string key = 1;
+  string value = 2;
+  uint64 ttl_seconds = 3;
+}
+
+// The SET response message
+message SetReply {
+}
